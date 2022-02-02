@@ -1,17 +1,17 @@
-public class Televisore implements Comparable<Televisore>{
+public class Telefono implements Comparable<Telefono>{
 // Attributi della classe
     private static int count = 0;   // Per l'ID autoincrementante
     private final int ID;
     private double costo;
     private String modello;
-    private String dimensione;
+    private int annoUscita;
 
 // Costruttore parametrizzato
-    public Televisore(double costo, String modello, String dimensione){
+    public Telefono(double costo, String modello, int annoUscita){
         this.ID = count++;
         setCosto(costo);
         setModello(modello);
-        setDimensione(dimensione);
+        setAnnoUscita(annoUscita);
     }
 
 // Metodi set e get
@@ -26,8 +26,8 @@ public class Televisore implements Comparable<Televisore>{
         this.modello = modello;
     }
 
-    public void setDimensione(String dimensione){
-        this.dimensione = dimensione;
+    public void setAnnoUscita(int annoUscita){
+        this.annoUscita = annoUscita;
     }
 
     public double getCosto(){
@@ -38,8 +38,8 @@ public class Televisore implements Comparable<Televisore>{
         return this.modello;
     }
 
-    public String getDimensione(){
-        return this.dimensione;
+    public int getAnnoUscita(){
+        return this.annoUscita;
     }
 
     public int getID(){
@@ -49,7 +49,7 @@ public class Televisore implements Comparable<Televisore>{
 // Metodo toString
     @Override
     public String toString(){
-        return "ID: " + this.ID + " Costo: " + this.costo + " Modello: " + this.modello + " Dimensione: " + this.dimensione;
+        return "ID: " + this.ID + " Costo: " + this.costo + " Modello: " + this.modello + " Anno Uscita: " + this.annoUscita;
     }
 
 // Metodo equals
@@ -57,10 +57,10 @@ public class Televisore implements Comparable<Televisore>{
     public boolean equals(Object o){
         if (o == this)
             return true;
-        if (!(o instanceof Televisore))
+        if (!(o instanceof Telefono))
             return false;
-        Televisore tel = (Televisore)o;
-        return this.modello.equals(tel.modello) && this.dimensione.equals(tel.dimensione);
+        Telefono tel = (Telefono)o;
+        return this.modello.equals(tel.modello) && this.annoUscita == tel.annoUscita;
     }
 
 // Metodo hashCode
@@ -70,15 +70,15 @@ public class Televisore implements Comparable<Televisore>{
         if (this.modello != null) {
             result = 31 * result + this.modello.hashCode();
         }
-        if (this.dimensione != null) {
-            result = 31 * result + this.dimensione.hashCode();
+        if (this.annoUscita > 0) {
+            result = 31 * result + this.annoUscita;
         }
         return result;
     }
 
 // Metodo compareTo
     @Override
-    public int compareTo(Televisore other){
+    public int compareTo(Telefono other){
         if(this.costo<other.costo)
             return -1;
         else if(other.costo<this.costo)
