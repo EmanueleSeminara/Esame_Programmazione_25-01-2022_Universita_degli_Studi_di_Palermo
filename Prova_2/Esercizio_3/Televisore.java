@@ -65,7 +65,7 @@ public class Televisore implements Comparable<Televisore>{
 
 // Metodo hashCode
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         int result = 17;
         if (this.modello != null) {
             result = 31 * result + this.modello.hashCode();
