@@ -14,7 +14,7 @@ public class Telefono{
 
     public void setMarca(String marca){
         for(int i = 0; i < marche.length; i++){
-            if(marche.equals(marche[i])){
+            if(marca.equals(marche[i])){
                 this.marca = marca;
                 return;
             }
