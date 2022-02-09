@@ -20,7 +20,8 @@ public class MacchinaCaffe extends Elettrodomestico{
                 return;
             }
         }
-        throw new IllegalArgumentException();    }
+        throw new IllegalArgumentException();
+    }
 
     public String getModello(){
         return this.modello;
